@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iranian National Code Validator</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #1e3c72, #2a5298); height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); width: 400px; text-align: center;">
+        <h1 style="color: #2a5298; margin: 0 0 20px; font-size: 28px; font-weight: bold;">National Code Validator</h1>
+        <p style="color: #666; margin: 0 0 20px; font-size: 16px;">Enter an Iranian National Code to check its validity</p>
+        
+        <input type="text" id="nationalCodeInput" placeholder="Your National Code" 
+               style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border-color 0.3s ease;"
+               onfocus="this.style.borderColor='#2a5298';" 
+               onblur="this.style.borderColor='#ddd';">
+        
+        <button onclick="validateCode()" 
+                style="background: #2a5298; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; margin-top: 20px; cursor: pointer; transition: background 0.3s ease, transform 0.2s ease;"
+                onmouseover="this.style.background='#1e3c72'; this.style.transform='scale(1.05)';"
+                onmouseout="this.style.background='#2a5298'; this.style.transform='scale(1)';">
+            Validate
+        </button>
+        
+        <p id="result" style="margin-top: 20px; font-size: 18px; font-weight: bold; color: #333; opacity: 0; transition: opacity 0.5s ease;"></p>
+    </div>
+
+    <!-- Link to external NationalCode.js file -->
+    <script src="NationalCode.js"></script>
+    
+    <script>
+        /**
+         * Handles the validation process and updates the UI using the external function.
+         */
+        function validateCode() {
+            const input = document.getElementById('nationalCodeInput').value;
+            const resultElement = document.getElementById('result');
+            const isValid = validateIranianNationalCode(input); // Call function from NationalCode.js
+
+            resultElement.style.opacity = '0'; // Fade out before updating
+            setTimeout(() => {
+                if (isValid) {
+                    resultElement.textContent = 'Valid National Code! ✅';
+                    resultElement.style.color = '#28a745';
+                } else {
+                    resultElement.textContent = 'Invalid National Code! ❌';
+                    resultElement.style.color = '#dc3545';
+                }
+                resultElement.style.opacity = '1'; // Fade in with result
+            }, 300);
+        }
+    </script>
+</body>
+</html>
