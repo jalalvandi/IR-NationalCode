@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iranian National Code Validator</title>
+    <title>صحت سنجی کد ملی</title>
 </head>
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #1e3c72, #2a5298); height: 100vh; display: flex; justify-content: center; align-items: center;">
     <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); width: 400px; text-align: center;">
-        <h1 style="color: #2a5298; margin: 0 0 20px; font-size: 28px; font-weight: bold;">National Code Validator</h1>
-        <p style="color: #666; margin: 0 0 20px; font-size: 16px;">Enter an Iranian National Code to check its validity</p>
+        <h1 style="color: #2a5298; margin: 0 0 20px; font-size: 28px; font-weight: bold;">تصدیق کد ملی</h1>
+        <p style="color: #666; margin: 0 0 20px; font-size: 16px;">کد ملی را وارد کنید</p>
+        <p style="color: #666; margin: 0 0 20px; font-size: 16px;">کد ملی شما در هیچ جا ذخیره نمیشود و صرفا توسط الگوریتم صحت آن سنجیده میشود</p>
         
         <input type="text" id="nationalCodeInput" placeholder="Your National Code" 
                style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; outline: none; transition: border-color 0.3s ease;"
@@ -40,10 +41,10 @@
             resultElement.style.opacity = '0'; // Fade out before updating
             setTimeout(() => {
                 if (isValid) {
-                    resultElement.textContent = 'Valid National Code! ✅';
+                    resultElement.textContent = 'این کد ملی صحیح است! ✅';
                     resultElement.style.color = '#28a745';
                 } else {
-                    resultElement.textContent = 'Invalid National Code! ❌';
+                    resultElement.textContent = 'این کد ملی صحیح نیست! ❌';
                     resultElement.style.color = '#dc3545';
                 }
                 resultElement.style.opacity = '1'; // Fade in with result
